@@ -1,11 +1,11 @@
 output "vpc_id" {
   description = "The ID of the created VPC."
-  value       = element(concat(aws_vpc.base.*.id, list("")), 0)
+  value       = element(concat(aws_vpc.base.*.id, [""]), 0)
 }
 
 output "vpc_cidr" {
   description = "The CIDR of the created VPC."
-  value       = element(concat(aws_vpc.base.*.cidr_block, list("")), 0)
+  value       = element(concat(aws_vpc.base.*.cidr_block, [""]), 0)
 }
 
 output "availability_zones" {
@@ -30,7 +30,7 @@ output "public_subnet_cidr_blocks" {
 
 output "public_route_table_id" {
   description = "The ID of the public route table."
-  value       = element(concat(aws_route_table.public.*.id, list("")), 0)
+  value       = element(concat(aws_route_table.public.*.id, [""]), 0)
 }
 
 output "private_subnet_ids" {
@@ -50,10 +50,10 @@ output "private_subnet_cidr_blocks" {
 
 output "private_route_table_id" {
   description = "The ID of the private route table."
-  value       = element(concat(aws_route_table.private.*.id, list("")), 0)
+  value       = element(concat(aws_route_table.private.*.id, [""]), 0)
 }
 
 output "nat_public_ip" {
   description = "The EIP attached to the NAT."
-  value       = element(concat(aws_eip.nat.*.public_ip, list("")), 0)
+  value       = element(concat(aws_eip.nat.*.public_ip, [""]), 0)
 }

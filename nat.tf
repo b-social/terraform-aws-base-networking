@@ -1,7 +1,7 @@
 resource "aws_eip" "nat" {
   count = local.include_nat_gateways == "yes" ? length(var.availability_zones) : 0
 
-  vpc = true
+  domain = "vpc"
 
   tags = {
     Name = "eip-nat-${var.component}-${var.deployment_identifier}-${element(var.availability_zones, count.index)}"

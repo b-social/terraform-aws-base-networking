@@ -1,7 +1,7 @@
 resource "aws_eip" "nat" {
   count = var.include_nat_gateway == "yes" ? 1 : 0
 
-  vpc = true
+  domain = "vpc"
 
   tags = {
     Name = "eip-nat-${var.component}-${var.deployment_identifier}"

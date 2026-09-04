@@ -22,3 +22,11 @@ gem 'rubocop-rake'
 gem 'rubocop-rspec'
 gem 'rubyzip'
 gem 'semantic'
+
+gem 'json', '>= 2.19.7'
+
+gem 'rspec-its', '>= 2.0.0'
+
+gem 'rexml', '>= 3.3.9'
+
+gem 'faraday', '>= 2.12.3'

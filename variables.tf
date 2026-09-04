@@ -53,3 +53,8 @@ variable "include_nat_gateways" {
   type = string
   default = "yes"
 }
+variable "availability_zone_limit" {
+  description = "The maximum number of availability zones for which to add subnets. Defaults to 3."
+  type = number
+  default = 3
+}

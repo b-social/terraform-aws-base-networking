@@ -1,17 +1,17 @@
 resource "aws_eip" "nat" {
-  count = local.include_nat_gateways == "yes" ? length(var.availability_zones) : 0
+  count = local.include_nat_gateways == "yes" ? length(local.effective_availability_zones) : 0
 
   domain = "vpc"
 
   tags = {
-    Name                 = "eip-nat-${var.component}-${var.deployment_identifier}-${element(var.availability_zones, count.index)}"
+    Name                 = "eip-nat-${var.component}-${var.deployment_identifier}-${element(local.effective_availability_zones, count.index)}"
     Component            = var.component
     DeploymentIdentifier = var.deployment_identifier
   }
 }
 
 resource "aws_nat_gateway" "base" {
-  count = local.include_nat_gateways == "yes" ? length(var.availability_zones) : 0
+  count = local.include_nat_gateways == "yes" ? length(local.effective_availability_zones) : 0
 
   allocation_id = element(aws_eip.nat.*.id, count.index)
   subnet_id     = element(aws_subnet.public.*.id, count.index)
@@ -21,7 +21,7 @@ resource "aws_nat_gateway" "base" {
   ]
 
   tags = {
-    Name                 = "nat-${var.component}-${var.deployment_identifier}-${element(var.availability_zones, count.index)}"
+    Name                 = "nat-${var.component}-${var.deployment_identifier}-${element(local.effective_availability_zones, count.index)}"
     Component            = var.component
     DeploymentIdentifier = var.deployment_identifier
   }

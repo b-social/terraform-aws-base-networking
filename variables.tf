@@ -11,6 +11,12 @@ variable "availability_zones" {
   description = "The availability zones for which to add subnets."
 }
 
+variable "availability_zone_limit" {
+  description = "The maximum number of availability zones for which to add subnets. Defaults to 3."
+  type        = number
+  default     = 3
+}
+
 variable "component" {
   type        = string
   description = "The component this network will contain."

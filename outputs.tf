@@ -10,12 +10,12 @@ output "vpc_cidr" {
 
 output "availability_zones" {
   description = "The availability zones in which subnets were created."
-  value       = var.availability_zones
+  value       = local.effective_availability_zones
 }
 
 output "number_of_availability_zones" {
   description = "The number of populated availability zones available."
-  value       = length(var.availability_zones)
+  value       = length(local.effective_availability_zones)
 }
 
 output "public_subnet_ids" {

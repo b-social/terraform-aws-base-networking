@@ -1419,7 +1419,8 @@ GEM
     immutable-struct (2.4.1)
     ipaddress (0.8.3)
     jmespath (1.6.2)
-    json (2.6.3)
+    json (2.7.6)
+    language_server-protocol (3.17.0.3)
     lino (3.1.0)
       hamster (~> 3.0)
       open4 (~> 1.3)
@@ -1431,13 +1432,15 @@ GEM
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
     open4 (1.3.4)
-    parallel (1.22.1)
-    parser (3.2.1.0)
+    parallel (1.26.3)
+    parser (3.3.5.1)
       ast (~> 2.4.1)
+      racc
     partialruby (0.3.0)
       ruby2ruby (~> 2)
       ruby_parser (~> 3)
     public_suffix (5.0.1)
+    racc (1.8.1)
     rainbow (3.1.1)
     rake (13.0.6)
     rake_circle_ci (0.11.0)
@@ -1481,8 +1484,7 @@ GEM
       rake_factory (~> 0.23)
       ruby-terraform (~> 1.4)
     rchardet (1.8.0)
-    regexp_parser (2.7.0)
-    rexml (3.2.5)
+    regexp_parser (2.9.2)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -1503,26 +1505,23 @@ GEM
       confidante (>= 0.27)
       rspec (>= 3.0)
       ruby-terraform (= 1.7.0.pre.18)
-    rubocop (1.45.1)
+    rubocop (1.68.0)
       json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
-      parser (>= 3.2.0.0)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.24.1, < 2.0)
+      regexp_parser (>= 2.4, < 3.0)
+      rubocop-ast (>= 1.32.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.26.0)
-      parser (>= 3.2.1.0)
-    rubocop-capybara (2.17.0)
-      rubocop (~> 1.41)
+    rubocop-ast (1.34.0)
+      parser (>= 3.3.1.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (2.18.1)
-      rubocop (~> 1.33)
-      rubocop-capybara (~> 2.17)
-    ruby-progressbar (1.11.0)
+    rubocop-rspec (3.2.0)
+      rubocop (~> 1.61)
+    ruby-progressbar (1.13.0)
     ruby-terraform (1.7.0.pre.18)
       immutable-struct (~> 2.4)
       lino (~> 3.0)
@@ -1555,7 +1554,7 @@ GEM
       sync
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.4.2)
+    unicode-display_width (2.6.0)
     vault (0.17.0)
       aws-sigv4
 
@@ -1579,9 +1578,9 @@ DEPENDENCIES
   rake_terraform
   rspec
   rspec-terraform
-  rubocop
+  rubocop (>= 1.66.0)
   rubocop-rake
-  rubocop-rspec
+  rubocop-rspec (>= 3.0.0)
   rubyzip
   semantic
 
